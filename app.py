@@ -20,7 +20,7 @@ def on_message(client, userdata, message):
 
 broker="broker.mqttdashboard.com"
 port=1883
-client1= paho.Client("Julia")
+client1= paho.Client("Juli")
 client1.on_message = on_message
 
 
@@ -29,11 +29,11 @@ st.title("MQTT Control")
 
 if st.button('ON'):
     act1="ON"
-    client1= paho.Client("Julia")                           
+    client1= paho.Client("Juli")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
     message =json.dumps({"Act1":act1})
-    ret= client1.publish("cmqtt_s", message)
+    ret= client1.publish("Axel", message)
  
     #client1.subscribe("Sensores")
     
@@ -43,7 +43,7 @@ else:
 
 if st.button('OFF'):
     act1="OFF"
-    client1= paho.Client("Julia")                           
+    client1= paho.Client("Juli")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
     message =json.dumps({"Act1":act1})
@@ -57,7 +57,7 @@ values = st.slider('Selecciona el rango de valores',0.0, 100.0)
 st.write('Values:', values)
 
 if st.button('Enviar valor analógico'):
-    client1= paho.Client("Julia")                           
+    client1= paho.Client("Juli")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)   
     message =json.dumps({"Analog": float(values)})
